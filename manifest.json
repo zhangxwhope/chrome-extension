@@ -1,0 +1,43 @@
+{
+  "name": "插件终结者",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "第一个hello world",
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "hello popup"
+  },
+  "options_page": "options.html",
+  "devtools_page": "devtools.html",
+  "permissions": ["storage", "declarativeContent", "activeTab", "contextMenus", "notifications"],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": true
+  },
+  "icons": {
+    "16": "icons/logo.png",
+    "48": "icons/logo.png",
+    "128": "icons/logo.png"
+  },
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F"
+      },
+      "description": "Opens popup.html"
+    }
+  },
+  "content_scripts": [
+    {
+      "css": [
+        "css/index.css"
+      ],
+      "js": [
+        "js/index.js"
+      ],
+      "matches": [
+        "https://www.baidu.com/*"
+      ]
+    }
+  ]
+}
